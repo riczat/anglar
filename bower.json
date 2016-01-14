@@ -19,7 +19,8 @@
     "angular-strap": "~2.3.6",
     "angular-bootstrap": "~0.14.3",
     "jquery": ">=1.8",
-    "angular-web-notification": "~0.0.53"
+    "angular-web-notification": "~0.0.53",
+    "bootstrap": "~3.3.6"
   },
   "ignore": [
     "**/.*",

@@ -1,44 +1,44 @@
 <!doctype html>
 <html ng-app="app">
 <head>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <!-- 1. Load libraries -->
+    
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-animate/angular-animate.js"></script>
       <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
       <script src="bower_components/angular-strap/dist/angular-strap.tpl.min.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
- 
+
      <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
      <script src="node_modules/systemjs/dist/system.src.js"></script>
      <script src="node_modules/rxjs/bundles/Rx.js"></script>
-     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
- </script>
+
+    <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.min.css">
     <link rel="stylesheet" type="text/css" href="bower_components/semantic/dist/semantic.css">
-    
+
     <link rel="stylesheet" href="{!! asset('css/vendor.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
-    <link rel="stylesheet" 
-    
+    <link rel="stylesheet"
+
         <title>anglar material</title>
     <!--[if lte IE 10]>
     <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
     <![endif]-->
-    <!-- 1. Load libraries -->
-    <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-    <script src="node_modules/rxjs/bundles/Rx.js"></script>
-    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
 
 
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
-        transpiler: 'typescript', 
-        typescriptOptions: { emitDecoratorMetadata: true }, 
-        packages: {'app': {defaultExtension: 'ts'}} 
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true },
+        packages: {'app': {defaultExtension: 'ts'}}
       });
       System.import('./app/boot')
             .then(null, console.error.bind(console));
