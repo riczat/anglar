@@ -5,65 +5,25 @@ try {
   module = angular.module('partialsModule', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/index-async.html',
-    '<!doctype html>\n' +
-    '<html lang="en">\n' +
-    '<head>\n' +
-    '  <meta charset="utf-8">\n' +
-    '  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">\n' +
-    '  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">\n' +
-    '  <style>\n' +
-    '    [ng-cloak] {\n' +
-    '      display: none;\n' +
-    '    }\n' +
-    '  </style>\n' +
-    '  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>\n' +
-    '  <script>\n' +
-    '    // include angular loader, which allows the files to load in any order\n' +
-    '    //@@NG_LOADER_START@@\n' +
-    '    // You need to run `npm run update-index-async` to inject the angular async code here\n' +
-    '    //@@NG_LOADER_END@@\n' +
+  $templateCache.put('./views/dialogs/add_users/add_users.html',
+    '<md-dialog ng-controller="AddUsersCtrl">\n' +
+    '	<form ng-submit="save()">\n' +
+    '		<md-dialog-content>\n' +
+    '			<h2 class="md-title">Add users</h2>\n' +
     '\n' +
-    '    // include a third-party async loader library\n' +
-    '    /*!\n' +
-    '     * $script.js v1.3\n' +
-    '     * https://github.com/ded/script.js\n' +
-    '     * Copyright: @ded & @fat - Dustin Diaz, Jacob Thornton 2011\n' +
-    '     * Follow our software http://twitter.com/dedfat\n' +
-    '     * License: MIT\n' +
-    '     */\n' +
-    '    !function(a,b,c){function t(a,c){var e=b.createElement("script"),f=j;e.onload=e.onerror=e[o]=function(){e[m]&&!/^c|loade/.test(e[m])||f||(e.onload=e[o]=null,f=1,c())},e.async=1,e.src=a,d.insertBefore(e,d.firstChild)}function q(a,b){p(a,function(a){return!b(a)})}var d=b.getElementsByTagName("head")[0],e={},f={},g={},h={},i="string",j=!1,k="push",l="DOMContentLoaded",m="readyState",n="addEventListener",o="onreadystatechange",p=function(a,b){for(var c=0,d=a.length;c<d;++c)if(!b(a[c]))return j;return 1};!b[m]&&b[n]&&(b[n](l,function r(){b.removeEventListener(l,r,j),b[m]="complete"},j),b[m]="loading");var s=function(a,b,d){function o(){if(!--m){e[l]=1,j&&j();for(var a in g)p(a.split("|"),n)&&!q(g[a],n)&&(g[a]=[])}}function n(a){return a.call?a():e[a]}a=a[k]?a:[a];var i=b&&b.call,j=i?b:d,l=i?a.join(""):b,m=a.length;c(function(){q(a,function(a){h[a]?(l&&(f[l]=1),o()):(h[a]=1,l&&(f[l]=1),t(s.path?s.path+a+".js":a,o))})},0);return s};s.get=t,s.ready=function(a,b,c){a=a[k]?a:[a];var d=[];!q(a,function(a){e[a]||d[k](a)})&&p(a,function(a){return e[a]})?b():!function(a){g[a]=g[a]||[],g[a][k](b),c&&c(d)}(a.join("|"));return s};var u=a.$script;s.noConflict=function(){a.$script=u;return this},typeof module!="undefined"&&module.exports?module.exports=s:a.$script=s}(this,document,setTimeout)\n' +
+    '			<md-input-container flex>\n' +
+    '        		<label>Data</label>\n' +
+    '				<input type="text">\n' +
+    '      		</md-input-container>\n' +
     '\n' +
-    '    // load all of the dependencies asynchronously.\n' +
-    '    $script([\n' +
-    '      \'bower_components/angular/angular.js\',\n' +
-    '      \'bower_components/angular-route/angular-route.js\',\n' +
-    '      \'app.js\',\n' +
-    '      \'view1/view1.js\',\n' +
-    '      \'view2/view2.js\',\n' +
-    '      \'components/version/version.js\',\n' +
-    '      \'components/version/version-directive.js\',\n' +
-    '      \'components/version/interpolate-filter.js\'\n' +
-    '    ], function() {\n' +
-    '      // when all is done, execute bootstrap angular application\n' +
-    '      angular.bootstrap(document, [\'myApp\']);\n' +
-    '    });\n' +
-    '  </script>\n' +
-    '  <title>My AngularJS App</title>\n' +
-    '  <link rel="stylesheet" href="app.css">\n' +
-    '</head>\n' +
-    '<body ng-cloak>\n' +
-    '  <ul class="menu">\n' +
-    '    <li><a href="#/view1">view1</a></li>\n' +
-    '    <li><a href="#/view2">view2</a></li>\n' +
-    '  </ul>\n' +
+    '		</md-dialog-content>\n' +
     '\n' +
-    '  <div ng-view></div>\n' +
-    '\n' +
-    '  <div>Angular seed app: v<span app-version></span></div>\n' +
-    '\n' +
-    '</body>\n' +
-    '</html>\n' +
+    '		<div class="md-actions" layout="row">\n' +
+    '			<md-button type="button" ng-click="hide()">Cancel</md-button>\n' +
+    '			<md-button class="md-primary md-raised" type="submit">Save</md-button>\n' +
+    '		</div>\n' +
+    '	</form>\n' +
+    '</md-dialog>\n' +
     '');
 }]);
 })();
@@ -75,81 +35,7 @@ try {
   module = angular.module('partialsModule', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/index.html',
-    '<!DOCTYPE html>\n' +
-    '\n' +
-    '<!--\n' +
-    'Copyright 2016 Google Inc. All Rights Reserved.\n' +
-    'Use of this source code is governed by an MIT-style license that\n' +
-    'can be found in the LICENSE file at http://angular.io/license\n' +
-    '-->\n' +
-    '<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->\n' +
-    '<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->\n' +
-    '<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->\n' +
-    '<!--[if gt IE 8]><!-->\n' +
-    '<!--<![endif]-->\n' +
-    '\n' +
-    '<html lang="en" ng-app="app" class="no-js">\n' +
-    '<head>\n' +
-    '  <meta charset="utf-8">\n' +
-    '  <meta http-equiv="X-UA-Compatible" content="IE=edge">\n' +
-    '  <title>My AngularJS App</title>\n' +
-    '  <meta name="description" content="">\n' +
-    '  <meta name="viewport" content="width=device-width, initial-scale=1">\n' +
-    '  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">\n' +
-    '  <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">\n' +
-    '  <link rel="stylesheet" href="app.css">\n' +
-    '\n' +
-    '	 <!-- 1. Load libraries -->\n' +
-    '    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>\n' +
-    '	  <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>\n' +
-    '    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2-polyfills.js"></script>\n' +
-    '    <script src="https://code.angularjs.org/tools/system.js"></script>\n' +
-    '    <script src="https://code.angularjs.org/tools/typescript.js"></script>\n' +
-    '    <script src="https://code.angularjs.org/2.0.0-beta.0/Rx.js"></script>\n' +
-    '    <script src="https://code.angularjs.org/2.0.0-beta.0/angular2.dev.js"></script>\n' +
-    '    <script src="js/app.js"></script>\n' +
-    '    <script src="js/partial.js"></script>\n' +
-    '    <script src="js/vendor.js"></script>\n' +
-    '    <script src="js/components/version/version.js"></script>\n' +
-    '    <script src="js/components/version/version-directive.js"></script>\n' +
-    '    <script src="js/components/version/interpolate-filter.js"></script>\n' +
-    '\n' +
-    '    <!-- 2. Configure SystemJS -->\n' +
-    '    <script>\n' +
-    '      System.config({\n' +
-    '        transpiler: \'typescript\',\n' +
-    '        typescriptOptions: { emitDecoratorMetadata: true },\n' +
-    '        packages: {\'app\': {defaultExtension: \'ts\'}}\n' +
-    '      });\n' +
-    '      System.import(\'app/boot\')\n' +
-    '            .then(null, console.error.bind(console));\n' +
-    '    </script>\n' +
-    '\n' +
-    '  </head>\n' +
-    '\n' +
-    '  <!-- 3. Display the application -->\n' +
-    '\n' +
-    '\n' +
-    '\n' +
-    '<body>\n' +
-    '  <div ng-view></div>\n' +
-    '\n' +
-    '  <ul class="menu">\n' +
-    '    <li><a href="#/views/view1">view1</a></li>\n' +
-    '    <li><a href="#/views/view2">view2</a></li>\n' +
-    '  </ul>\n' +
-    '\n' +
-    '\n' +
-    '\n' +
-    '  <my-app>Loading...</my-app>\n' +
-    '\n' +
-    '  <div>Angular seed app: v<span app-version></span></div>\n' +
-    '\n' +
-    '\n' +
-    '\n' +
-    '</body>\n' +
-    '</html>\n' +
+  $templateCache.put('./views/directives/data_listing/data_listing.html',
     '');
 }]);
 })();
@@ -161,7 +47,7 @@ try {
   module = angular.module('partialsModule', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/avengers/avengers.html',
+  $templateCache.put('./views/app/views/avengers/avengers.html',
     '<section class="mainbar" data-ng-controller="avengers as vm">\n' +
     '    <section class="matter">\n' +
     '        <div class="container">\n' +
@@ -209,7 +95,7 @@ try {
   module = angular.module('partialsModule', []);
 }
 module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/dashboard/dashboard.html',
+  $templateCache.put('./views/app/views/dashboard/dashboard.html',
     '<section id="dashboard-view" class="mainbar" data-ng-controller="dashboard as vm">\n' +
     '    <section class="matter">\n' +
     '        <div class="container">\n' +
@@ -277,114 +163,6 @@ module.run(['$templateCache', function($templateCache) {
     '        </div>\n' +
     '    </section>\n' +
     '</section>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('partialsModule');
-} catch (e) {
-  module = angular.module('partialsModule', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/layout/shell.html',
-    '<div data-ng-controller="shell as vm">\n' +
-    '    <header class="clearfix">\n' +
-    '        <div data-ng-include="\'app/layout/topnav.html\'"></div>\n' +
-    '    </header>\n' +
-    '    <section id="content" class="content">\n' +
-    '        <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">\n' +
-    '            <div data-cc-spinner="vm.spinnerOptions"></div>\n' +
-    '            <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>\n' +
-    '        </div>\n' +
-    '\n' +
-    '        <div data-ng-include="\'app/layout/sidebar.html\'"></div>\n' +
-    '\n' +
-    '        <div data-ng-view class="shuffle-animation"></div>\n' +
-    '    </section>\n' +
-    '</div>\n' +
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('partialsModule');
-} catch (e) {
-  module = angular.module('partialsModule', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/layout/sidebar.html',
-    '<div data-cc-sidebar data-ng-controller="sidebar as vm">\n' +
-    '    <div class="sidebar-filler"></div>\n' +
-    '    <div class="sidebar-dropdown"><a href="#">Menu</a></div>\n' +
-    '    <div class="sidebar-inner">\n' +
-    '        <div class="sidebar-widget">\n' +
-    '        </div>\n' +
-    '        <ul class="navi">\n' +
-    '            <li class="nlightblue fade-selection-animation" data-ng-class="vm.isCurrent(r)"\n' +
-    '                data-ng-repeat="r in vm.navRoutes">\n' +
-    '                <a href="#{{r.url}}" data-ng-bind-html="r.config.settings.content"></a>\n' +
-    '            </li>\n' +
-    '        </ul>\n' +
-    '    </div>\n' +
-    '</div>\n' +
-    '');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('partialsModule');
-} catch (e) {
-  module = angular.module('partialsModule', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/layout/topnav.html',
-    '<nav class="navbar navbar-fixed-top navbar-inverse">\n' +
-    '    <div class="navbar-header">\n' +
-    '        <a href="/" class="navbar-brand"><span class="brand-title">{{vm.title}}</span></a>\n' +
-    '        <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">\n' +
-    '            <span class="icon-bar"></span>\n' +
-    '            <span class="icon-bar"></span>\n' +
-    '            <span class="icon-bar"></span>\n' +
-    '        </a>\n' +
-    '    </div>\n' +
-    '    <div class="navbar-collapse collapse">\n' +
-    '        <div class="pull-right navbar-logo">\n' +
-    '            <ul class="nav navbar-nav pull-right">\n' +
-    '                <li>\n' +
-    '                    <a href="http://www.johnpapa.net/hottowel-angular" target="_blank">\n' +
-    '                        Created by John Papa\n' +
-    '                    </a>\n' +
-    '                </li>\n' +
-    '                <li class="dropdown dropdown-big">\n' +
-    '                    <a href="http://www.angularjs.org" target="_blank">\n' +
-    '                        <img src="content/images/AngularJS-small.png" />\n' +
-    '                    </a>\n' +
-    '                </li>\n' +
-    '            </ul>\n' +
-    '        </div>\n' +
-    '    </div>\n' +
-    '</nav>');
-}]);
-})();
-
-(function(module) {
-try {
-  module = angular.module('partialsModule');
-} catch (e) {
-  module = angular.module('partialsModule', []);
-}
-module.run(['$templateCache', function($templateCache) {
-  $templateCache.put('./views/app/layout/widgetheader.html',
-    '<div class="page-title pull-left">{{title}}</div>\n' +
-    '<small class="page-title-subtle" data-ng-show="subtitle">({{subtitle}})</small>\n' +
-    '<div class="widget-icons pull-right" data-ng-if="allowCollapse">\n' +
-    '    <a data-cc-widget-minimize></a>\n' +
-    '</div>\n' +
-    '<small class="pull-right page-title-subtle" data-ng-show="rightText">{{rightText}}</small>\n' +
-    '<div class="clearfix"></div>');
 }]);
 })();
 
@@ -533,6 +311,524 @@ module.run(['$templateCache', function($templateCache) {
     '		<br/>\n' +
     '	</div>\n' +
     '</div>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/layout/shell.html',
+    '<div data-ng-controller="shell as vm">\n' +
+    '    <header class="clearfix">\n' +
+    '        <div data-ng-include="\'app/layout/topnav.html\'"></div>\n' +
+    '    </header>\n' +
+    '    <section id="content" class="content">\n' +
+    '        <div data-ng-show="vm.isBusy" class="page-splash dissolve-animation">\n' +
+    '            <div data-cc-spinner="vm.spinnerOptions"></div>\n' +
+    '            <div class="page-splash-message page-splash-message-subtle">{{vm.busyMessage}}</div>\n' +
+    '        </div>\n' +
+    '\n' +
+    '        <div data-ng-include="\'app/layout/sidebar.html\'"></div>\n' +
+    '\n' +
+    '        <div data-ng-view class="shuffle-animation"></div>\n' +
+    '    </section>\n' +
+    '</div>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/layout/topnav.html',
+    '<nav class="navbar navbar-fixed-top navbar-inverse">\n' +
+    '    <div class="navbar-header">\n' +
+    '        <a href="/" class="navbar-brand"><span class="brand-title">{{vm.title}}</span></a>\n' +
+    '        <a class="btn navbar-btn navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">\n' +
+    '            <span class="icon-bar"></span>\n' +
+    '            <span class="icon-bar"></span>\n' +
+    '            <span class="icon-bar"></span>\n' +
+    '        </a>\n' +
+    '    </div>\n' +
+    '    <div class="navbar-collapse collapse">\n' +
+    '        <div class="pull-right navbar-logo">\n' +
+    '            <ul class="nav navbar-nav pull-right">\n' +
+    '                <li>\n' +
+    '                    <a href="http://www.johnpapa.net/hottowel-angular" target="_blank">\n' +
+    '                        Created by John Papa\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '                <li class="dropdown dropdown-big">\n' +
+    '                    <a href="http://www.angularjs.org" target="_blank">\n' +
+    '                        <img src="content/images/AngularJS-small.png" />\n' +
+    '                    </a>\n' +
+    '                </li>\n' +
+    '            </ul>\n' +
+    '        </div>\n' +
+    '    </div>\n' +
+    '</nav>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/layout/widgetheader.html',
+    '<div class="page-title pull-left">{{title}}</div>\n' +
+    '<small class="page-title-subtle" data-ng-show="subtitle">({{subtitle}})</small>\n' +
+    '<div class="widget-icons pull-right" data-ng-if="allowCollapse">\n' +
+    '    <a data-cc-widget-minimize></a>\n' +
+    '</div>\n' +
+    '<small class="pull-right page-title-subtle" data-ng-show="rightText">{{rightText}}</small>\n' +
+    '<div class="clearfix"></div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/autocomplete.html',
+    '<div  ng-controller="SearchController as vm">\n' +
+    '  <md-content ng-show="$showOptions" class="options">\n' +
+    '    <md-radio-group ng-model="vm.disableCaching" >\n' +
+    '      <md-radio-button  ng-value="true">Disable caching</md-radio-button>\n' +
+    '      <md-radio-button  ng-value="false">Enable caching</md-radio-button>\n' +
+    '    </md-radio-group>\n' +
+    '  </md-content>\n' +
+    '\n' +
+    '  <md-content class="md-padding">\n' +
+    '    <md-autocomplete placeholder="Search country"\n' +
+    '                     md-selected-item="vm.selectedCountry"\n' +
+    '                     md-search-text="vm.searchText"\n' +
+    '                     md-no-cache="vm.disableCaching"\n' +
+    '                     md-items="item in vm.querySearch(vm.searchText)"\n' +
+    '                     md-item-text="item.display">\n' +
+    '      <span md-highlight-text="vm.searchText">{{item.display}}</span>\n' +
+    '    </md-autocomplete>\n' +
+    '\n' +
+    '    <p>Selected country:\n' +
+    '      <b>{{vm.selectedCountry.display || \'No country selected\'}}</b>\n' +
+    '    </p>\n' +
+    '    <p>Country code:\n' +
+    '      <b>{{vm.selectedCountry.code || \'No country selected\'}}</b>\n' +
+    '    </p>\n' +
+    '  </md-content>\n' +
+    '</div>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/bottomSheet.html',
+    '<md-bottom-sheet class="md-list md-has-header">\n' +
+    '  <md-subheader>Select action</md-subheader>\n' +
+    '  <md-list>\n' +
+    '      <md-list-item ng-repeat="action in vm.actions">\n' +
+    '          <md-button class="md-list-item-content"  ng-click="vm.performAction(action)" ng-href="{{action.url}}" target="_blank">\n' +
+    '              <i class="material-icons">{{action.icon}}</i>\n' +
+    '              <span class="share-label">{{action.name}}</span>\n' +
+    '          </md-button>\n' +
+    '      </md-list-item>\n' +
+    '  </md-list>\n' +
+    '</md-bottom-sheet>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/checkboxes.html',
+    '<md-content class="md-padding" ng-controller="TodoController as vm">\n' +
+    '    <div layout="row">\n' +
+    '        <h4 flex="82">{{vm.remaining()}} of {{vm.todos.length}} remaining</h4>\n' +
+    '        <md-button class="md-primary" ng-click="vm.toggleAll()">Toggle All\n' +
+    '        </md-button>\n' +
+    '    </div>\n' +
+    '\n' +
+    '    <md-checkbox ng-repeat="todo in vm.todos" ng-model="todo.done">\n' +
+    '        {{todo.text}}\n' +
+    '    </md-checkbox>\n' +
+    '\n' +
+    '    <form ng-submit="vm.addTodo($event)">\n' +
+    '        <md-input-container>\n' +
+    '            <label>Write some todo task here...</label>\n' +
+    '            <input ng-model="vm.todoText">\n' +
+    '        </md-input-container>\n' +
+    '        <md-button class="md-fab md-warn" aria-label="Eat cake">\n' +
+    '            <i class="material-icons">add</i>\n' +
+    '        </md-button>\n' +
+    '        <md-button class="md-primary" ng-click="vm.archive($event)">\n' +
+    '            Remove completed\n' +
+    '        </md-button>\n' +
+    '    </form>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/controlPanel.html',
+    '<md-content ng-controller="ControlPanelController as vm" class="md-padding">\n' +
+    '    <md-progress-linear class="widget-progress md-accent" md-mode="determinate"\n' +
+    '                        value="{{vm.determinateValue}}" ng-show="vm.showProgress">\n' +
+    '    </md-progress-linear>\n' +
+    '\n' +
+    '    <md-radio-group ng-model="vm.reloadServer">\n' +
+    '        <md-radio-button class="md-accent" value="Staging">Staging server</md-radio-button>\n' +
+    '        <md-radio-button class="md-accent" value="Production">Production server</md-radio-button>\n' +
+    '    </md-radio-group>\n' +
+    '\n' +
+    '    <md-button class="md-raised md-warn" ng-click="vm.performProgress()">\n' +
+    '        Reload server\n' +
+    '    </md-button>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/memory.html',
+    '<md-content ng-controller="MemoryController as vm" class="md-padding" layout="row" layout-align="center center">\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.memoryChartData"></nvd3>\n' +
+    '</md-content>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/messages.html',
+    '<div class="messages" ng-controller="MessagesController as vm">\n' +
+    '    <md-content class="messages-content">\n' +
+    '\n' +
+    '        <messages-section theme="md-accent" title="New Orders" messages="vm.messages"></messages-section>\n' +
+    '        <messages-section theme="md-primary" title="Delivered" messages="vm.messages"></messages-section>\n' +
+    '        <messages-section theme="md-warn" title="Problems reported" messages="vm.messages"></messages-section>\n' +
+    '\n' +
+    '        <md-divider></md-divider>\n' +
+    '    </md-content>\n' +
+    '</div>');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/performance.html',
+    '<div ng-controller="PerformanceController as vm">\n' +
+    '  <md-content ng-show="$showOptions" class="options">\n' +
+    '    <md-radio-group ng-model="vm.performancePeriod" ng-change="vm.changePeriod()">\n' +
+    '      <md-radio-button  value="week">Last week</md-radio-button>\n' +
+    '      <md-radio-button  value="month">Last month</md-radio-button>\n' +
+    '    </md-radio-group>\n' +
+    '  </md-content>\n' +
+    '\n' +
+    '  <md-content class="md-padding">\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.performanceChartData"></nvd3>\n' +
+    '  </md-content>\n' +
+    '</div>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/profile.html',
+    '<!-- TODO: Add validations -->\n' +
+    '<md-content md-theme="dark" class="md-padding" layout="row" layout-sm="column">\n' +
+    '    <md-input-container>\n' +
+    '        <label>Username</label>\n' +
+    '        <input ng-model="vm.user.title">\n' +
+    '    </md-input-container>\n' +
+    '    <md-input-container>\n' +
+    '        <label>Email</label>\n' +
+    '        <input ng-model="vm.user.email" type="email">\n' +
+    '    </md-input-container>\n' +
+    '</md-content>\n' +
+    '<md-content class="md-padding">\n' +
+    '    <form name="userForm">\n' +
+    '        <div layout layout-sm="column">\n' +
+    '            <md-input-container flex="80">\n' +
+    '                <label>Company (Disabled)</label>\n' +
+    '                <input ng-model="vm.user.company" disabled>\n' +
+    '            </md-input-container>\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>Submission Date</label>\n' +
+    '                <input type="date" ng-model="vm.user.submissionDate">\n' +
+    '            </md-input-container>\n' +
+    '        </div>\n' +
+    '        <div layout layout-sm="column">\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>First Name</label>\n' +
+    '                <input ng-model="vm.user.firstName"\n' +
+    '                       placeholder="Placeholder text">\n' +
+    '            </md-input-container>\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>Last Name</label>\n' +
+    '                <input ng-model="vm.user.lastName">\n' +
+    '            </md-input-container>\n' +
+    '        </div>\n' +
+    '        <md-input-container flex>\n' +
+    '            <label>Address</label>\n' +
+    '            <input ng-model="vm.user.address">\n' +
+    '        </md-input-container>\n' +
+    '        <div layout layout-sm="column">\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>City</label>\n' +
+    '                <input ng-model="vm.user.city">\n' +
+    '            </md-input-container>\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>State</label>\n' +
+    '                <input ng-model="user.state">\n' +
+    '            </md-input-container>\n' +
+    '            <md-input-container flex>\n' +
+    '                <label>Postal Code</label>\n' +
+    '                <input ng-model="vm.user.postalCode">\n' +
+    '            </md-input-container>\n' +
+    '        </div>\n' +
+    '        <md-input-container flex>\n' +
+    '            <label>About us</label>\n' +
+    '            <textarea ng-model="vm.user.biography" columns="1"\n' +
+    '                      md-maxlength="150"></textarea>\n' +
+    '        </md-input-container>\n' +
+    '    </form>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/table.html',
+    '<!-- TODO: Replace table to table component when https://github.com/angular/material/issues/796 will closed -->\n' +
+    '<div class="table-responsive-vertical md-whiteframe-z1">\n' +
+    '    <table id="table" class="table table-hover table-bordered">\n' +
+    '        <thead>\n' +
+    '        <tr>\n' +
+    '            <th>#</th>\n' +
+    '            <th>Issue</th>\n' +
+    '            <th>Status</th>\n' +
+    '            <th>Progress</th>\n' +
+    '        </tr>\n' +
+    '        </thead>\n' +
+    '        <tbody>\n' +
+    '        <tr ng-repeat="data in vm.tableData track by $index">\n' +
+    '            <td data-title="ID">{{$index + 1}}</td>\n' +
+    '            <td data-title="Issue">{{data.issue}}</td>\n' +
+    '            <td data-title="Status">{{data.status}}</td>\n' +
+    '            <td data-title="Progress">\n' +
+    '                <md-progress-linear class="table-progress {{data.class}}"\n' +
+    '                                    md-mode="determinate"\n' +
+    '                                    value={{data.progress}}>\n' +
+    '                </md-progress-linear>\n' +
+    '            </td>\n' +
+    '        </tr>\n' +
+    '        </tbody>\n' +
+    '    </table>\n' +
+    '</div>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/usage.html',
+    '<md-content ng-controller="UsageController as vm" class="md-padding" layout="row">\n' +
+    '  <div flex>\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.ramChartData"></nvd3>\n' +
+    '    <h4 class="donut-chart-title">RAM</h4>\n' +
+    '  </div>\n' +
+    '  <div flex>\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.storageChartData"></nvd3>\n' +
+    '    <h4 class="donut-chart-title">Storage</h4>\n' +
+    '  </div>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/visitors.html',
+    '<md-content ng-controller="VisitorsController as vm" class="md-padding" layout="row" layout-align="center center">\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.visitorsChartData"></nvd3>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/partials/warnings.html',
+    '<md-content ng-controller="WarningsController as vm" class="md-padding" layout="row" layout-align="center center">\n' +
+    '    <nvd3 options="vm.chartOptions" data="vm.warningsChartData"></nvd3>\n' +
+    '</md-content>\n' +
+    '');
+}]);
+})();
+
+(function(module) {
+try {
+  module = angular.module('partialsModule');
+} catch (e) {
+  module = angular.module('partialsModule', []);
+}
+module.run(['$templateCache', function($templateCache) {
+  $templateCache.put('./views/app/views/sidebar/sidebar.html',
+    '\n' +
+    '<md-sidenav md-is-locked-open="$mdMedia(\'gt-sm\')" md-component-id="left"\n' +
+    '            class="md-whiteframe-z2 md-sidenav-left">\n' +
+    '  <md-toolbar md-theme="custom" class="md-hue-1 md-whiteframe-z2">\n' +
+    '    <md-button layout="row" layout-align="center center" class="md-toolbar-tools md-warn"\n' +
+    '               href="https://github.com/flatlogic/angular-material-dashboard">\n' +
+    '      <h1>AMD</h1>\n' +
+    '    </md-button>\n' +
+    '  </md-toolbar>\n' +
+    '      <md-button ng-repeat-start="item in vm.menuItems" layout="column" layout-align="center center"\n' +
+    '                 flex class="capitalize" ng-click="vm.selectItem(item)"\n' +
+    '                 ui-sref-active="md-warn" ui-sref="{{item.sref}}">\n' +
+    '          <div hide-sm hide-md class="md-tile-content">\n' +
+    '              <i class="material-icons md-36">{{item.icon}}</i>\n' +
+    '          </div>\n' +
+    '          <div class="md-tile-content">\n' +
+    '              {{item.name}}\n' +
+    '          </div>\n' +
+    '      </md-button>\n' +
+    '      <md-divider ng-repeat-end></md-divider>\n' +
+    '      <md-button hide-gt-md flex ng-click="vm.showActions($event)">\n' +
+    '          <div layout="row" class="md-tile-content">\n' +
+    '            Actions\n' +
+    '          </div>\n' +
+    '      </md-button>\n' +
+    '</md-sidenav>\n' +
+    '\n' +
+    '<div layout="column" flex>\n' +
+    '    <md-toolbar layout="row" layout-align="end center">\n' +
+    '        <md-button hide-sm class="toolbar-button" aria-label="Search">\n' +
+    '            <i class="material-icons">search</i>\n' +
+    '        </md-button>\n' +
+    '        <md-button hide-sm class="toolbar-button" aria-label="Notifications">\n' +
+    '            <i class="material-icons">notifications</i>\n' +
+    '            <span class="notifications-label">7</span>\n' +
+    '        </md-button>\n' +
+    '        <md-button hide-sm class="toolbar-button" aria-label="Settings">\n' +
+    '            <i class="material-icons">settings</i>\n' +
+    '        </md-button>\n' +
+    '        <md-button hide-gt-sm ng-click="vm.toggleItemsList()" aria-label="Menu">\n' +
+    '            <i class="material-icons">menu</i>\n' +
+    '        </md-button>\n' +
+    '    </md-toolbar>\n' +
+    '\n' +
+    '    <md-content flex class="md-padding page-content">\n' +
+    '        <div ui-view></div>\n' +
+    '    </md-content>\n' +
+    '</div>\n' +
+    '\n' +
+    '<md-sidenav md-is-locked-open="$mdMedia(\'gt-sm\')" md-component-id="right"\n' +
+    '            class="md-whiteframe-z2 md-sidenav-right">\n' +
+    '    <md-toolbar layout="row">\n' +
+    '        <md-toolbar flex="80" class="md-warn" layout="row" layout-align="center center">\n' +
+    '            <img class="img-circle" ng-src="assets/images/feynman.jpg">\n' +
+    '            <md-menu>\n' +
+    '                <md-button class="capitalize" ng-click="$mdOpenMenu()" aria-label="Open menu">\n' +
+    '                    <span>Richard Feynman</span>\n' +
+    '                    <i class="material-icons">keyboard_arrow_down</i>\n' +
+    '                </md-button>\n' +
+    '                <md-menu-content>\n' +
+    '                    <md-menu-item><md-button ng-click="$mdCloseMenu()" ui-sref="home.profile">Profile</md-button></md-menu-item>\n' +
+    '                    <md-menu-item><md-button ng-click="$mdCloseMenu()" ui-sref="home.dashboard">Log out</md-button></md-menu-item>\n' +
+    '                </md-menu-content>\n' +
+    '            </md-menu>\n' +
+    '        </md-toolbar>\n' +
+    '        <md-toolbar flex="20" layout="row" layout-align="center center">\n' +
+    '            <md-button ng-click="vm.showActions($event)" class="toolbar-button">\n' +
+    '                <i class="material-icons">more_vert</i>\n' +
+    '            </md-button>\n' +
+    '        </md-toolbar>\n' +
+    '    </md-toolbar>\n' +
+    '\n' +
+    '    <section>\n' +
+    '        <md-toolbar md-theme="grey" class="md-hue-1">\n' +
+    '            <div class="md-toolbar-tools">\n' +
+    '                <h3>Messages</h3>\n' +
+    '            </div>\n' +
+    '        </md-toolbar>\n' +
+    '        <div ng-include src="\'app/views/partials/messages.html\'"/>\n' +
+    '    </section>\n' +
+    '</md-sidenav>\n' +
     '');
 }]);
 })();

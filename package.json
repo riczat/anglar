@@ -85,8 +85,16 @@
     "cors": "^2.2.0",
     "debug": "^0.8.0",
     "serve-static": "^1.0.4",
-    "static-favicon": "^1.0.2"
-  },
+    "static-favicon": "^1.0.2",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt": "~0.4.2",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "glob": "~3.2.9"
+},
   "dependencies": {
     "angular2": "2.0.0-beta.0",
     "babel": "^6.3.26",
@@ -140,4 +148,9 @@
     "protractor": "protractor e2e-tests/protractor.conf.js",
     "update-index-async": "node -e \"require('shelljs/global'); sed('-i', /\\/\\/@@NG_LOADER_START@@[\\s\\S]*\\/\\/@@NG_LOADER_END@@/, '//@@NG_LOADER_START@@\\n' + sed(/sourceMappingURL=angular-loader.min.js.map/,'sourceMappingURL=bower_components/angular-loader/angular-loader.min.js.map','bower_components/angular-loader/angular-loader.min.js') + '\\n//@@NG_LOADER_END@@', 'app/index-async.html');\""
   }
+  "author": "Ricard Zättergren",
+  "webroot": "../public/",
+  "webapp": "../public/app",
+  "dest": "../ngjs/build-grunt/dist/",
+  "temp": "../ngjs/build-grunt/temp/"
 }

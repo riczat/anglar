@@ -13,9 +13,9 @@ Copyright 2016 Google Inc. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at http://angular.io/license
 -->
-<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="app" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="app" class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <!--<![endif]-->
 
@@ -29,9 +29,9 @@ can be found in the LICENSE file at http://angular.io/license
   <!-- 1. Load libraries -->
    <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
    <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
-   <script src="js/app.js"></script>
-   <script src="js/partial.js"></script>
-   <script src="js/vendor.js"></script>
+   <script src="public/js/app.js"></script>
+   <script src="public/js/partial.js"></script>
+   <script src="public/js/vendor.js"></script>
    <script src="js/components/version/version.js"></script>
    <script src="js/components/version/version-directive.js"></script>
    <script src="js/components/version/interpolate-filter.js"></script>
@@ -69,7 +69,7 @@ can be found in the LICENSE file at http://angular.io/license
         typescriptOptions: { emitDecoratorMetadata: true },
         packages: {'app': {defaultExtension: 'ts'}}
       });
-      System.import('./app/boot')
+      System.import('app/boot')
             .then(null, console.error.bind(console));
     </script>
 
@@ -141,11 +141,6 @@ can be found in the LICENSE file at http://angular.io/license
 <script src="{!! asset('js/partials.js') !!}"></script>
 <script src="{!! asset('js/app.js') !!}"></script>
 
-{{--livereload--}}
-@if ( env('APP_ENV') === 'local' )
-    <script type="text/javascript">
-        document.write('<script src="'+ location.protocol + '//' + (location.host || 'localhost') +':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
-    </script>
-@endif
+
 </body>
 </html>

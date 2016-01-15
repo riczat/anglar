@@ -3,6 +3,7 @@
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 
+
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,15 +14,16 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         Model::unguard();
-
-        // $this->call(UserTableSeeder::class);
-        //JWT demo
-        App\User::create([
-            'name' => 'Jad Joubran',
-            'email' => 'joubran.jad@gmail.com',
-            'password' => bcrypt('laravel_angular'),
-            ]);
-
+        
+     /*   $this->call(UserTableSeeder::class);
+        $this->call(ClientTableSeeder::class);
+        $this->call(ProjectTableSeeder::class);
+        $this->call(ProjectNoteTableSeeder::class);
+        $this->call(ProjectTasksTableSeeder::class);
+        $this->call(ProjectMenbersTableSeeder::class);*/
+        $this->call(OAuthClientSeeder::class);
+        
         Model::reguard();
     }
 }
+
