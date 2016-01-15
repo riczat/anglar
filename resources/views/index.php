@@ -1,10 +1,42 @@
-<!doctype html>
-<html ng-app="app">
+<!DOCTYPE html>
+<html data-ng-app="app">
 <head>
+    <style>
+        /* This helps the ng-show/ng-hide animations start at the right place. */
+        /* Since Angular has this but needs to load, this gives us the class early. */
+        .ng-hide {
+            display: none!important;
+        }
+    </style>
+<!--
+Copyright 2016 Google Inc. All Rights Reserved.
+Use of this source code is governed by an MIT-style license that
+can be found in the LICENSE file at http://angular.io/license
+-->
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<!--<![endif]-->
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <!-- 1. Load libraries -->
-    
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>My AngularJS App</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+
+  <!-- 1. Load libraries -->
+   <script type="text/javascript" src="bundle.js" charset="utf-8"></script>
+   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
+   <script src="js/app.js"></script>
+   <script src="js/partial.js"></script>
+   <script src="js/vendor.js"></script>
+   <script src="js/components/version/version.js"></script>
+   <script src="js/components/version/version-directive.js"></script>
+   <script src="js/components/version/interpolate-filter.js"></script>
+
+
       <script src="bower_components/angular/angular.js"></script>
       <script src="bower_components/angular-animate/angular-animate.js"></script>
       <script src="bower_components/angular-strap/dist/angular-strap.min.js"></script>
@@ -24,15 +56,12 @@
 
     <link rel="stylesheet" href="{!! asset('css/vendor.css') !!}">
     <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
-    <link rel="stylesheet"
 
-        <title>anglar material</title>
-    <!--[if lte IE 10]>
-    <script type="text/javascript">document.location.href = '/unsupported-browser'</script>
-    <![endif]-->
-
-
-
+    <link href="content/bootstrap.min.css" rel="stylesheet" />
+    <link href="content/font-awesome.min.css" rel="stylesheet" />
+    <link href="content/toastr.css" rel="stylesheet" />
+    <link href="content/customtheme.css" rel="stylesheet">
+    <link href="content/styles.css" rel="stylesheet" />
     <!-- 2. Configure SystemJS -->
     <script>
       System.config({
@@ -45,53 +74,72 @@
     </script>
 
   </head>
-
-  <!-- 3. Display the application -->
   <body>
-    <my-app>Loading...</my-app>
-  </body>
+    <div ng-view></div>
 
-</html>
+    <ul class="menu">
+      <li><a href="#/views/view1">view1</a></li>
+      <li><a href="#/views/view2">view2</a></li>
+    </ul>
 
-<body layout="row">
-<div ui-view="header" class="Page"></div>
+<div ui-view="header"></div>
+<div ui-view="main"></div>
+<div ui-view="footer"></div>
+    <div>
+        <div data-ng-include="'app/layout/shell.html'"></div>
+        <div id="splash-page" data-ng-show="false">
+            <div class="page-splash">
+                <div class="page-splash-message">
+                    Grunt and Gulp with Angular
+                </div>
+                <div class="progress progress-striped active page-progress-bar">
+                    <div class="bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- Sidenav component -->
-<md-sidenav
-        class="Sidebar md-sidenav-left md-whiteframe-z2"
-        md-component-id="left"
-        md-is-locked-open="$mdMedia('gt-md')"
-        tabindex="-1">
+    <span data-cc-scroll-to-top></span>
 
-    <!-- Sidebar header/branding -->
-    <md-toolbar class="Sidebar-header">
-        <h1 class="md-toolbar-tools Sidebar-title">Laravel 5 angular<br>material starter</h1>
-        <h6 class="Sidebar-version">
-            <a target="_blank" href="https://github.com/jadjoubran/laravel5-angular-material-starter/releases">version 3 - alpha</a>
-        </h6>
-    </md-toolbar>
+    <!-- Vendor Scripts -->
+    <script src="scripts/jquery-2.0.3.js"></script>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-animate.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/angular-sanitize.js"></script>
+    <script src="scripts/bootstrap.js"></script>
+    <script src="scripts/toastr.js"></script>
+    <script src="scripts/moment.js"></script>
+    <script src="scripts/ui-bootstrap-tpls-0.10.0.js"></script>
+    <script src="scripts/spin.js"></script>
 
-    <!-- Sidebar menu items -->
-    <md-content
-            class="Sidebar-pages md-default-theme"
-            ui-view="sidebar"
-            ng-controller="SidebarCtrl">
-    </md-content>
-</md-sidenav>
+    <!-- Bootstrapping -->
+    <script src="app/app.js"></script>
+    <script src="app/config.js"></script>
+    <script src="app/config.exceptionHandler.js"></script>
+    <script src="app/config.route.js"></script>
 
-<div flex role="main" layout="column" tabindex="-1">
-    <md-toolbar class="Header md-accent md-whiteframe-z1" layout="column">
-        <div ui-view="header" ng-controller="HeaderCtrl"></div>
-    </md-toolbar>
-    <md-content layout="column" flex md-scroll-y>
-        <div ui-view="main" class="Page"></div>
-    </md-content>
-</div>
-<div ui-view="footer" class="Page"></div>
+    <!-- common Modules -->
+    <script src="app/common/common.js"></script>
+    <script src="app/common/logger.js"></script>
+    <script src="app/common/spinner.js"></script>
+
+    <!-- common.bootstrap Modules -->
+    <script src="app/common/bootstrap/bootstrap.dialog.js"></script>
+
+    <!-- app -->
+    <script src="app/avengers/avengers.js"></script>
+    <script src="app/dashboard/dashboard.js"></script>
+    <script src="app/layout/shell.js"></script>
+    <script src="app/layout/sidebar.js"></script>
+
+    <!-- app Services -->
+    <script src="app/services/datacontext.js"></script>
+    <script src="app/services/directives.js"></script>
 
 <script src="{!! asset('js/vendor.js') !!}"></script>
+<script src="{!! asset('js/partials.js') !!}"></script>
 <script src="{!! asset('js/app.js') !!}"></script>
-<script src="//cdn.jsdelivr.net/g/prism@1.3.0(prism.js+components/prism-css.min.js+components/prism-php.min.js+components/prism-bash.min.js+components/prism-javascript.min.js+components/prism-markup.min.js+plugins/show-language/prism-show-language.min.js)"></script>
 
 {{--livereload--}}
 @if ( env('APP_ENV') === 'local' )

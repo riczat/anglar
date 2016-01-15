@@ -6,7 +6,7 @@ return [
             /*
              * Angular source directory name
              */
-            'main'            => 'angular',
+            'main'            => 'ngjs',
             /*
              * Angular config directory name
              */
@@ -34,19 +34,19 @@ return [
       ],
       'prefixFileNames' => [
             /*
-             * Angular controller 
+             * Angular controller
              */
             'controller'      => '.controller.js',
             /*
-             * Angular directive 
+             * Angular directive
              */
             'directive'       => '.directive.js',
             /*
-             * Angular dialog 
+             * Angular dialog
              */
             'dialog'          => '.dialog.js',
             /*
-             * Angular definition 
+             * Angular definition
              */
             'definition'      => '.definition.js',
             /*

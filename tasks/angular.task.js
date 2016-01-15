@@ -19,7 +19,7 @@ var Task = Elixir.Task;
 
 Elixir.extend('angular', function(src, output, outputFilename) {
 
-	var baseDir = src || Elixir.config.assetsPath + '/anglar/';
+	var baseDir = src || Elixir.config.assetsPath + '/ngjs/';
 
 	new Task('angular in ' + baseDir, function() {
 		// Main file has to be included first.
