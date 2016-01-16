@@ -1,6 +1,12 @@
 var elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var fs = require('fs');
+var livereload = require('gulp-livereload');
+var clean = require('rimraf');
+var config = {
+	assets_path: './resources/assets',
+	build_path:'./public/build',
+  bower_path: './bower_components'};
 require('./tasks/angular.task.js');
 require('./tasks/bower.task.js');
 require('./tasks/ngHtml2Js.task.js');
@@ -8,16 +14,6 @@ require('./tasks/ngHtml2Js.task.js');
 require('laravel-elixir-livereload');
 
 
-livereload = require('gulp-livereload'),
-gulp = require('gulp'),
-clean = require('rimraf');
-
-var config = {
-	assets_path: './resources/assets',
-	build_path:'./public/build'
-};
-
-config.bower_path = './bower_components';
 
 config.build_path_js = config.build_path + "/js";
 config.build_vendor_path_js = config.build_path_js + "/vendor";
