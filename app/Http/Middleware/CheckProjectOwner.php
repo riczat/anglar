@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Http\Middleware;
+namespace App\Http\Middleware;
 
 use Closure;
-use app\Repositories\ProjectRepository;
+use App\Repositories\ProjectRepository;
 
 class CheckProjectOwner {
 

@@ -6,13 +6,13 @@
  * and open the template in the editor.
  */
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\ClientRepository;
-use app\Entities\Client;
-use app\Presenters\ClientPresenter;
+use App\Repositories\ClientRepository;
+use App\Entities\Client;
+use App\Presenters\ClientPresenter;
 
 /**
  * Description of ClientRepositoryEloquent

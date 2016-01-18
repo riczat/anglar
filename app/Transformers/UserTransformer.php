@@ -6,9 +6,9 @@
  * and open the template in the editor.
  */
 
-namespace app\Transformers;
+namespace App\Transformers;
 
-use app\Entities\User;
+use App\Entities\User;
 use League\Fractal\TransformerAbstract;
 
 /**

@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use larang\Entities\User;
+use App\Entities\User;
 
 class UserTableSeeder extends Seeder {
 
@@ -11,13 +11,13 @@ class UserTableSeeder extends Seeder {
      * @return void
      */
     public function run() {
-        //  User::truncate();
-       /* factory(User::class)->create([
-            'name' => "mario Henrique",
-            'email' => "mario@mario",
-            'password' => bcrypt(123456),
+      //  User::truncate();
+       factory(User::class)->create([
+            'name' => "Ricard Zattergren",
+            'email' => "ricard.zattergren@gmail.com",
+            'password' => bcrypt('emil9707'),
             'remember_token' => str_random(10),
-        ]);*/
+        ]);
         factory(User::class, 10)->create();
     }
 

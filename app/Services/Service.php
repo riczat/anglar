@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace app\Services;
+namespace App\Services;
 
 use Prettus\Validator\Exceptions\ValidatorException;
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Http\Controllers\Controller;
-use app\Repositories\ProjectMemberRepository;
+use App\Http\Controllers\Controller;
+use App\Repositories\ProjectMemberRepository;
 
 class ProjectMemberController extends Controller
 {

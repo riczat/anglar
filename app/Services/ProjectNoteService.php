@@ -1,10 +1,10 @@
 <?php
 
 
-namespace app\Services;
+namespace App\Services;
 
-use app\Repositories\ProjectNoteRepository;
-use app\Validators\ProjectNoteValidator;
+use App\Repositories\ProjectNoteRepository;
+use App\Validators\ProjectNoteValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 /**

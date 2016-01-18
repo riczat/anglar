@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use larang\Entities\ProjectTask;
+use App\Entities\ProjectTask;
 
 class ProjectTasksTableSeeder extends Seeder {
 

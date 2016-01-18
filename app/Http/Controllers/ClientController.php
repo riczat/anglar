@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Repositories\ClientRepository;
-use app\Services\ClientService;
+use App\Repositories\ClientRepository;
+use App\Services\ClientService;
 
 class ClientController extends Controller {
 

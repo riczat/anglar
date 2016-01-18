@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Routing\Router;
-use Dingo\Api\Routing\Router as ApiRouter;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
 class RouteServiceProvider extends ServiceProvider
@@ -16,15 +15,6 @@ class RouteServiceProvider extends ServiceProvider
      * @var string
      */
     protected $namespace = 'App\Http\Controllers';
-
-    /**
-     * This version is applied to the API routes in your routes file.
-     *
-     * Check dingo/api's documentation for more info.
-     *
-     * @var string
-     */
-    protected $version = 'v1';
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -45,14 +35,10 @@ class RouteServiceProvider extends ServiceProvider
      * @param  \Illuminate\Routing\Router  $router
      * @return void
      */
-    public function map(Router $router, ApiRouter $apiRouter)
+    public function map(Router $router)
     {
-        $apiRouter->version($this->version, function ($apiRouter) use ($router) {
-            $apiRouter->group(['namespace' => $this->namespace], function ($api) use ($router) {
-                $router->group(['namespace' => $this->namespace], function ($router) use ($api) {
-                    require app_path('Http/routes.php');
-                });
-            });
+        $router->group(['namespace' => $this->namespace], function ($router) {
+            require app_path('Http/routes.php');
         });
     }
 }

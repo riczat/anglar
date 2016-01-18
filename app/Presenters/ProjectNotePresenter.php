@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Presenters;
+namespace App\Presenters;
 
 use Prettus\Repository\Presenter\FractalPresenter;
-use app\Transformers\ProjectNoteTransformer;
+use App\Transformers\ProjectNoteTransformer;
 
 class ProjectNotePresenter extends FractalPresenter {
 

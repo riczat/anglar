@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Repositories\ProjectTaskRepository;
-use app\Services\ProjectTaskService;
+use App\Repositories\ProjectTaskRepository;
+use App\Services\ProjectTaskService;
 
 class ProjectTaskController extends Controller {
 

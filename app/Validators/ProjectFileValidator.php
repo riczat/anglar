@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Validators;
+namespace App\Validators;
 
 use Prettus\Validator\LaravelValidator;
 

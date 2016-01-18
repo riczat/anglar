@@ -1,8 +1,8 @@
 <?php
 
-namespace app\Transformers;
+namespace App\Transformers;
 
-use app\Entities\ProjectTask;
+use App\Entities\ProjectTask;
 use League\Fractal\TransformerAbstract;
 
 /**

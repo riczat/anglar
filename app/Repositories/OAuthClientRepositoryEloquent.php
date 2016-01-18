@@ -1,15 +1,15 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\OAuthClientRepository;
-use app\Entities\OAuthClient;
+use App\Repositories\OAuthClientRepository;
+use App\Entities\OAuthClient;
 
 /**
  * Class OAuthClientRepositoryEloquent
- * @package namespace app\Repositories;
+ * @package namespace App\Repositories;
  */
 class OAuthClientRepositoryEloquent extends BaseRepository implements OAuthClientRepository
 {

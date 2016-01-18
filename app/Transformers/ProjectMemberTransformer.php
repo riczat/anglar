@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Transformers;
+namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use app\Entities\User;
+use App\Entities\User;
 
 /**
  * Class ProjectMemberTransformer
- * @package namespace app\Transformers;
+ * @package namespace App\Transformers;
  */
 class ProjectMemberTransformer extends TransformerAbstract
 {

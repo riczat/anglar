@@ -11,6 +11,6 @@ class OAuthClientSeeder extends Seeder
      */
     public function run()
     {
-        factory(larang\Entities\OAuthClient::class, 1)->create();
+        factory(App\Entities\OAuthClient::class, 1)->create();
     }
 }

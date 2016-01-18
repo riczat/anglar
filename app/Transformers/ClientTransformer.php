@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Transformers;
+namespace App\Transformers;
 
 use League\Fractal\TransformerAbstract;
-use app\Entities\Client;
+use App\Entities\Client;
 
 class ClientTransformer extends TransformerAbstract
 {

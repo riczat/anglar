@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use larang\Entities\Client;
+use App\Entities\Client;
 
 class ClientTableSeeder extends Seeder {
 

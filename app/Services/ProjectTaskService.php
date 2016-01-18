@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
-use app\Repositories\ProjectTaskRepository;
-use app\Validators\ProjectTaskValidator;
+use App\Repositories\ProjectTaskRepository;
+use App\Validators\ProjectTaskValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 class ProjectTaskService {

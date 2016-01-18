@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
-use app\Entities\Project;
-use app\Repositories\ProjectRepository;
-use app\Validators\ProjectValidator;
+use App\Entities\Project;
+use App\Repositories\ProjectRepository;
+use App\Validators\ProjectValidator;
 use Illuminate\Contracts\Filesystem\Factory as Storage;
 use Illuminate\Filesystem\Filesystem;
 

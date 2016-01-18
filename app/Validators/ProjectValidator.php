@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace app\Validators;
+namespace App\Validators;
 
 use Prettus\Validator\LaravelValidator;
 

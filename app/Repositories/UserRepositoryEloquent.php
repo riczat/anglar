@@ -1,15 +1,15 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
-use app\Entities\User;
+use App\Entities\User;
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\UserRepository;
+use App\Repositories\UserRepository;
 
 /**
  * Class UserRepositoryRepositoryEloquent
- * @package namespace app\Repositories;
+ * @package namespace App\Repositories;
  */
 class UserRepositoryEloquent extends BaseRepository implements UserRepository
 {

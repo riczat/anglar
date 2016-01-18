@@ -1,16 +1,16 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\ProjectMemberRepository;
-use app\Entities\ProjectMember;
-use app\Presenters\ProjectMemberPresenter;
+use App\Repositories\ProjectMemberRepository;
+use App\Entities\ProjectMember;
+use App\Presenters\ProjectMemberPresenter;
 
 /**
  * Class ProjectMemberRepositoryEloquent
- * @package namespace app\Repositories;
+ * @package namespace App\Repositories;
  */
 class ProjectMemberRepositoryEloquent extends BaseRepository implements ProjectMemberRepository
 {

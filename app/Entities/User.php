@@ -1,6 +1,6 @@
 <?php
 
-namespace app\Entities;
+namespace App\Entities;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
@@ -43,7 +43,7 @@ class User extends Model implements Transformable, AuthenticatableContract, Auth
 
     public function projects()
     {
-        $this->hasMany('app\Entities\Project', 'owner_id', 'id');
+        $this->hasMany('App\Entities\Project', 'owner_id', 'id');
     }
 
     public function memberInProjects()

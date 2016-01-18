@@ -6,8 +6,8 @@
  * and open the template in the editor.
  */
 
-namespace app\Presenters;
-use app\Transformers\UserTransformer;
+namespace App\Presenters;
+use App\Transformers\UserTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**

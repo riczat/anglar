@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Services;
+namespace App\Services;
 
-use app\Repositories\ClientRepository;
-use app\Validators\ClientValidator;
+use App\Repositories\ClientRepository;
+use App\Validators\ClientValidator;
 use Prettus\Validator\Exceptions\ValidatorException;
 
 /**

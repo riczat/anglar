@@ -1,10 +1,10 @@
 <?php
 
-namespace app\Http\Controllers;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use app\Repositories\ProjectNoteRepository;
-use app\Services\ProjectNoteService;
+use App\Repositories\ProjectNoteRepository;
+use App\Services\ProjectNoteService;
 
 class ProjectNoteController extends Controller
 {

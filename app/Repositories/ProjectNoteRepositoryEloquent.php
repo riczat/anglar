@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\ProjectNoteRepository;
-use app\Entities\ProjectNote;
+use App\Repositories\ProjectNoteRepository;
+use App\Entities\ProjectNote;
 /**
  * Class ProjectNoteRepositoryEloquent
- * @package namespace app\Repositories;
+ * @package namespace App\Repositories;
  */
 class ProjectNoteRepositoryEloquent extends BaseRepository implements ProjectNoteRepository
 {

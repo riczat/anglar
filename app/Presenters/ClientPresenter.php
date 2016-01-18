@@ -1,14 +1,14 @@
 <?php
 
-namespace app\Presenters;
+namespace App\Presenters;
 
-use app\Transformers\ClientTransformer;
+use App\Transformers\ClientTransformer;
 use Prettus\Repository\Presenter\FractalPresenter;
 
 /**
  * Class ProjectMemberPresenter
  *
- * @package namespace app\Presenters;
+ * @package namespace App\Presenters;
  */
 class ClientPresenter extends FractalPresenter
 {

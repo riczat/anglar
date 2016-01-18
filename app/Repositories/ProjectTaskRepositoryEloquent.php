@@ -1,15 +1,15 @@
 <?php
 
-namespace app\Repositories;
+namespace App\Repositories;
 
 use Prettus\Repository\Eloquent\BaseRepository;
 use Prettus\Repository\Criteria\RequestCriteria;
-use app\Repositories\ProjectTaskRepository;
-use app\Entities\ProjectTask;
+use App\Repositories\ProjectTaskRepository;
+use App\Entities\ProjectTask;
 
 /**
  * Class ProjectTaskRepositoryEloquent
- * @package namespace app\Repositories;
+ * @package namespace App\Repositories;
  */
 class ProjectTaskRepositoryEloquent extends BaseRepository implements ProjectTaskRepository
 {

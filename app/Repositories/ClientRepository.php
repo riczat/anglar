@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace app\Repositories;
+namespace App\Repositories;
 use Prettus\Repository\Contracts\RepositoryInterface;
 /**
  *

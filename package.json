@@ -138,10 +138,5 @@
     "test-single-run": "karma start karma.conf.js  --single-run",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update"
-  },
-  "author": "Ricard Zättergren",
-  "webroot": "../public/",
-  "webapp": "../public/app",
-  "dest": "../ngjs/build-grunt/dist/",
-  "temp": "../ngjs/build-grunt/temp/"
+  }
 }

@@ -4,13 +4,12 @@ var fs = require('fs');
 var livereload = require('gulp-livereload');
 var clean = require('rimraf');
 var config = {
-	assets_path: './resources/assets',
+	assets_path:'./resources/assets',
 	build_path:'./public/build',
-  bower_path: './bower_components'};
+  bower_path:'./bower_components'};
 require('./tasks/angular.task.js');
 require('./tasks/bower.task.js');
 require('./tasks/ngHtml2Js.task.js');
-//require('./gulp/ngHtml2Js.task.js');
 require('laravel-elixir-livereload');
 
 
@@ -115,17 +114,17 @@ elixir(function(mix) {
 		.bower()
 		.angular('./ngjs/')
 		.ngHtml2Js('./ngjs/**/*.html')
-		.less('./ngjs/material/*.less', 'public/css')
-		.copy('./ngjs/app/views/**/*.html', 'public/views/')
-		.copy('./ngjs/directives/**/*.html', 'public/views/directives/')
-		.copy('./ngjs/dialogs/**/*.html', 'public/views/dialogs/')
+		.less('./ngjs/material/*.less', 'public/build/css')
+		.copy('./ngjs/app/views/**/*.html', 'public/build/views/')
+		.copy('./ngjs/directives/**/*.html', 'public/build/views/directives/')
+		.copy('./ngjs/dialogs/**/*.html', 'public/build/views/dialogs/')
 		.livereload([
-			'public/js/vendor.js',
-			'public/js/partials.js',
-			'public/js/app.js',
-			'public/css/vendor.css',
-			'public/css/app.css',
-			'public/views/**/*.html'
+			'public/build/js/vendor.js',
+			'public/build/js/partials.js',
+			'public/build/js/app.js',
+			'public/build/css/vendor.css',
+			'public/build/css/app.css',
+			'public/build/views/**/*.html'
 		], {
 			liveCSS: true
 		});
