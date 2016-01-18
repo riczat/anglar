@@ -8,6 +8,7 @@
         'ngRoute',          // routing
         'ngSanitize',       // sanitizes html bindings (ex: sidebar.js)
 				'partialsModule',
+				'angular-locker',
 
         // Custom modules
         'common',           // common functions, logger, spinner
@@ -26,7 +27,7 @@
 		]);
 
 	angular.module('app.routes', ['ui.router']);
-	angular.module('app.controllers', ['ui.router', 'ngMaterial', 'ngStorage', 'restangular', 'angular-loading-bar']);
+	angular.module('app.controllers', ['ui.router', 'ngMaterial', 'ngStorage', 'restangular', 'angular-loading-bar', 'angular-locker']);
 	angular.module('app.filters', []);
 	angular.module('app.services', []);
 	angular.module('app.directives', []);

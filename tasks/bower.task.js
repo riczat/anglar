@@ -41,7 +41,7 @@ Elixir.extend('bower', function(jsOutputFile, jsOutputFolder, cssOutputFile, css
 			.pipe(filter('**/*.js'))
 			.pipe(concat(jsFile, {sourcesContent: true}))
 			.pipe(gulpIf(Elixir.config.production, uglify()))
-			.pipe(gulp.dest(jsOutputFolder || Elixir.config.js.outputFolder))
+			.pipe(gulp.dest(jsOutputFolder || Elixir.config.build_path_js))
 			.pipe(notify({
 				title: 'Laravel Elixir',
 				subtitle: 'Javascript Bower Files Imported!',
@@ -57,7 +57,7 @@ Elixir.extend('bower', function(jsOutputFile, jsOutputFolder, cssOutputFile, css
 			.pipe(filter('**/*.css'))
 			.pipe(concat(cssFile))
 			.pipe(gulpIf(config.production, minify()))
-			.pipe(gulp.dest(cssOutputFolder || config.css.outputFolder))
+			.pipe(gulp.dest(cssOutputFolder || config.build_path_css))
 			.pipe(notify({
 				title: 'Laravel Elixir',
 				subtitle: 'CSS Bower Files Imported!',

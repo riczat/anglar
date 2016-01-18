@@ -4,7 +4,7 @@
 	angular.module('app.routes').config(function($stateProvider, $urlRouterProvider){
 
 		var getView = function(viewName){
-			return './views/app/' + viewName + '/' + viewName + '.html';
+			return './build/views/' + viewName + '/' + viewName + '.html';
 		};
 
 		$urlRouterProvider.otherwise('/');

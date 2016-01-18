@@ -23,7 +23,7 @@ elixir.extend('ngHtml2Js', function(src, output, options) {
 
     var paths = new elixir.GulpPaths()
         .src(src || ['**/*.{htm,html}'], config.get('assets.js.folder'))
-        .output(output || Elixir.config.js.outputFolder, 'partials.js');
+        .output(output || Elixir.config.build_path_js, 'partials.js');
 
     new elixir.Task('ngHtml2Js', function() {
 

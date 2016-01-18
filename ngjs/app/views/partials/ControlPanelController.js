@@ -1,5 +1,5 @@
 (function () {
-
+	"use strict";
     angular
         .module('app')
         .controller('ControlPanelController', [
@@ -24,7 +24,7 @@
                     vm.determinateValue = 10;
                     vm.showProgress = false;
                     showAlert();
-                    $interval.cancel(interval)
+                    $interval.cancel(interval);
                 }
             }, 50, 0, true);
         }
