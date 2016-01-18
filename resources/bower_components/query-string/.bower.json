@@ -1,0 +1,15 @@
+{
+  "name": "query-string",
+  "homepage": "https://github.com/sindresorhus/query-string",
+  "version": "3.0.0",
+  "_release": "3.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v3.0.0",
+    "commit": "98fa7d3ec2584336d95e09560aba69849c26ecd9"
+  },
+  "_source": "git://github.com/sindresorhus/query-string.git",
+  "_target": "~3.0.0",
+  "_originalSource": "query-string",
+  "_direct": true
+}

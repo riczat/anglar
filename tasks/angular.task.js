@@ -19,12 +19,12 @@ var Task = Elixir.Task;
 
 Elixir.extend('angular', function(src, output, outputFilename) {
 
-	var baseDir = '/ngjs/';
+	var baseDir = '/../ngjs/';
 
 	var config = {
-		build_path_js: '/../public/build/js',
-		build_path_css: '/../public/build/css',
-		build_path_vendor: '/../public/build/vendor'};
+		build_path_js:'/../public/build/js',
+		build_path_css:'/../public/build/css',
+		build_path_vendor:'/../public/build/vendor'};
 
 
 	new Task('angular in ' + baseDir, function() {

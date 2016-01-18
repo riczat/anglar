@@ -4,15 +4,19 @@ var fs = require('fs');
 var livereload = require('gulp-livereload');
 var clean = require('rimraf');
 
-require('./tasks/angular.task.js');
-require('./tasks/bower.task.js');
-require('./tasks/ngHtml2Js.task.js');
+//require('./tasks/angular.task.js');
+//require('./tasks/bower.task.js');
+//require('./tasks/ngHtml2Js.task.js');
+//require('./tasks/elixir.task.js');
 require('laravel-elixir-livereload');
 
 var config = {
 	assets_path:'./resources/assets',
 	build_path:'./public/build',
-  bower_path:'./bower_components'};
+	build_path_js:'./public/build/js',
+	build_path_css:'./public/build/css',
+	build_path_vendor:'./public/build/vendor',
+  bower_path:'./resources/bower_components'};
 
 config.build_path_js = config.build_path + "/js";
 config.build_vendor_path_js = config.build_path_js + "/vendor";
@@ -32,9 +36,6 @@ config.vendor_path_js = [
 	config.bower_path + '/angular-oauth2/dist/angular-oauth2.min.js'
 ];
 
-config.build_path_css = config.build_path + "/css";
-config.build_vendor_path_css = config.build_path_css + "/vendor";
-
 config.vendor_path_css = [
 	config.bower_path + '/bootstrap/dist/css/bootstrap.min.css',
 	config.bower_path + '/bootstrap/dist/css/bootstrap-theme.min.css'
@@ -52,7 +53,7 @@ gulp.task('copy-styles',function(){
 	.pipe(livereload());
 
 	gulp.src(config.vendor_path_css)
-	.pipe(gulp.dest(config.build_vendor_path_css))
+	.pipe(gulp.dest(config.build_path_css))
 	.pipe(livereload());
 });
 gulp.task('copy-html',function(){
@@ -71,8 +72,8 @@ gulp.task('copy-scripts',function(){
 	.pipe(gulp.dest(config.build_path_js))
 	.pipe(livereload());
 
-	gulp.src(config.vendor_path_js)
-	.pipe(gulp.dest(config.build_vendor_path_js))
+	gulp.src(config.build_path_js)
+	.pipe(gulp.dest(config.build__path_vendor))
 	.pipe(livereload());
 });
 
@@ -95,39 +96,4 @@ gulp.task('watch-dev',['clear-build-folder'], function(){
 	livereload.listen();
 	gulp.start('copy-styles','copy-scripts','copy-html');
 	gulp.watch(config.assets_path + '/**',['copy-styles','copy-scripts','copy-html']); // vê em todos os arquivos
-});
-
-
-/*
- |--------------------------------------------------------------------------
- | Elixir Asset Management
- |--------------------------------------------------------------------------
- |
- | Elixir provides a clean, fluent API for defining some basic Gulp tasks
- | for your Laravel application. By default, we are compiling the Sass
- | file for our application, as well as publishing vendor resources.
- |
- */
-
-elixir(function(mix) {
-	mix
-		.bower()
-		.angular('./ngjs/')
-		.ngHtml2Js('./ngjs/**/*.html')
-		.less('./ngjs/material/*.less', 'public/build/css')
-		.copy('./ngjs/app/views/**/*.html', 'public/build/views/')
-		.copy('./ngjs/directives/**/*.html', 'public/build/views/directives/')
-		.copy('./ngjs/dialogs/**/*.html', 'public/build/views/dialogs/')
-		.livereload([
-			'public/build/js/vendor.js',
-			'public/build/js/partials.js',
-			'public/build/js/app.js',
-			'public/build/css/vendor.css',
-			'public/build/css/app.css',
-			'public/build/views/**/*.html'
-		], {
-			liveCSS: true
-		});
-
-	//.phpUnit();
 });

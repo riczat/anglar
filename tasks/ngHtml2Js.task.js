@@ -3,7 +3,7 @@
 */
 var gulp = require('gulp'),
     ngHtml2Js = require('gulp-ng-html2js'),
-    minifyHtml = require('gulp-minify-html'),
+    minifyHtml = require('gulp-htmlmin'),
     uglify = require('gulp-uglify'),
     gulpIf = require('gulp-if'),
     concat = require('gulp-concat'),
@@ -23,7 +23,7 @@ elixir.extend('ngHtml2Js', function(src, output, options) {
 
     var paths = new elixir.GulpPaths()
         .src(src || ['**/*.{htm,html}'], config.get('assets.js.folder'))
-        .output(output || Elixir.config.build_path_js, 'partials.js');
+        .output(output || Elixir.config.js.outputFolder, 'partials.js');
 
     new elixir.Task('ngHtml2Js', function() {
 

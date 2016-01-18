@@ -11,6 +11,14 @@ var concat_sm = require('gulp-concat-sourcemap');
 var concat = require('gulp-concat');
 var gulpIf = require('gulp-if');
 
+var baseDir = '/../ngjs/';
+
+var config = {
+	build_path_js:'/../public/build/js',
+	build_path_css:'/../public/build/css',
+	build_path_vendor:'/../public/build/vendor'};
+
+
 var Elixir = require('laravel-elixir');
 require('laravel-elixir-livereload');
 
