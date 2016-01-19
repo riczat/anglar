@@ -1,18 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html ng-app="app" ng-strict-di>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Laravel</title>
-        @if(Config::get('app.debug'))
-        <link href="{{ asset('build/css/vendor/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('build/css/vendor/bootstrap-theme.min.css') }}" rel="stylesheet">
-        @else
-        <link href="{{ elixir('css/all.css') }}" rel="stylesheet">
-        @endif
-
-        <!-- Fonts -->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+      <link rel="stylesheet" href="{!! asset('css/vendor.css') !!}">
+      <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
+      <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+      <title>Anglar Material Starter</title>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,30 +53,23 @@
             </div>
         </nav>
 
+            <div ui-view="views/header"></div>
+            <div ui-view="views/main"></div>
+            <div ui-view="views/footer"></div>
 
         <!-- Scripts -->
         <div ng-view></div>
 
-        @if(Config::get('app.debug'))
-        <script src="{{ asset('build/js/vendor/jquery.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/angular.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/angular-route.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/angular-resource.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/angular-messages.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/ui-bootstrap.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/navbar.min.js') }}"></script>
-        <!-- OAuth2 -->
-        <script src="{{ asset('build/js/vendor/angular-cookies.min.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/query-string.js') }}"></script>
-        <script src="{{ asset('build/js/vendor/angular-oauth2.min.js') }}"></script>
 
-        <script src="{{ asset('build/js/app.js') }}"></script>
-        <script src="{{ asset('build/js/controllers/login.js') }}"></script>
-        <script src="{{ asset('build/js/controllers/home.js') }}"></script>
-        @else
+        <script src="{!! asset('js/vendor.js') !!}"></script>
+        <script src="{!! asset('js/partials.js') !!}"></script>
+        <script src="{!! asset('js/app.js') !!}"></script>
 
-        <script src="{{ elixir('js/all.js') }}"></script>
+        {{--livereload--}}
+        @if ( env('APP_ENV') === 'local' )
+        <script type="text/javascript">
+            document.write('<script src="'+ location.protocol + '//' + (location.host.split(':')[0] || 'localhost') +':35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+        </script>
         @endif
     </body>
-</html>
+    </html>

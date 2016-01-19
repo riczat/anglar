@@ -5,22 +5,13 @@ var gulp = require('gulp');
 var mainBowerFiles = require('main-bower-files');
 var filter = require('gulp-filter');
 var notify = require('gulp-notify');
-var minify = require('gulp-minify-css');
+var minify = require('gulp-cssnano');
 var uglify = require('gulp-uglify');
 var concat_sm = require('gulp-concat-sourcemap');
 var concat = require('gulp-concat');
 var gulpIf = require('gulp-if');
 
-var baseDir = '/../ngjs/';
-
-var config = {
-	build_path_js:'/../public/build/js',
-	build_path_css:'/../public/build/css',
-	build_path_vendor:'/../public/build/vendor'};
-
-
 var Elixir = require('laravel-elixir');
-require('laravel-elixir-livereload');
 
 var Task = Elixir.Task;
 
@@ -49,7 +40,7 @@ Elixir.extend('bower', function(jsOutputFile, jsOutputFolder, cssOutputFile, css
 			.pipe(filter('**/*.js'))
 			.pipe(concat(jsFile, {sourcesContent: true}))
 			.pipe(gulpIf(Elixir.config.production, uglify()))
-			.pipe(gulp.dest(jsOutputFolder || Elixir.config.build_path_js))
+			.pipe(gulp.dest(jsOutputFolder || Elixir.config.js.outputFolder))
 			.pipe(notify({
 				title: 'Laravel Elixir',
 				subtitle: 'Javascript Bower Files Imported!',
@@ -65,7 +56,7 @@ Elixir.extend('bower', function(jsOutputFile, jsOutputFolder, cssOutputFile, css
 			.pipe(filter('**/*.css'))
 			.pipe(concat(cssFile))
 			.pipe(gulpIf(config.production, minify()))
-			.pipe(gulp.dest(cssOutputFolder || config.build_path_css))
+			.pipe(gulp.dest(cssOutputFolder || config.css.outputFolder))
 			.pipe(notify({
 				title: 'Laravel Elixir',
 				subtitle: 'CSS Bower Files Imported!',

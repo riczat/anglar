@@ -1,99 +1,44 @@
 var elixir = require('laravel-elixir');
-var gulp = require('gulp');
-var fs = require('fs');
-var livereload = require('gulp-livereload');
-var clean = require('rimraf');
-
-//require('./tasks/angular.task.js');
-//require('./tasks/bower.task.js');
-//require('./tasks/ngHtml2Js.task.js');
-//require('./tasks/elixir.task.js');
+require('./tasks/angular.task.js');
+require('./tasks/bower.task.js');
+require('./tasks/ngHtml2Js.task.js');
 require('laravel-elixir-livereload');
 
 var config = {
-	assets_path:'./resources/assets',
-	build_path:'./public/build',
-	build_path_js:'./public/build/js',
-	build_path_css:'./public/build/css',
-	build_path_vendor:'./public/build/vendor',
-  bower_path:'./resources/bower_components'};
+	assets_path: './resources/assets',
+	build_path_html:'./public/views',
+	build_path_css:'./public/css',
+	build_path_js:'./public/js'
+};
+/*
+|--------------------------------------------------------------------------
+| Elixir Asset Management
+|--------------------------------------------------------------------------
+|
+| Elixir provides a clean, fluent API for defining some basic Gulp tasks
+| for your Laravel application. By default, we are compiling the Sass
+| file for our application, as well as publishing vendor resources.
+|
+*/
 
-config.build_path_js = config.build_path + "/js";
-config.build_vendor_path_js = config.build_path_js + "/vendor";
+elixir(function(mix) {
+ mix
+	 .bower('./bower.js')
+	 .angular('./ngjs/')
+	 .ngHtml2Js('./ngjs/**/*.html')
+	 .less('./ngjs/**/*.less', 'public/css')
+	 .copy('./ngjs/app/**/*.html', 'public')
+	 .copy('./ngjs/directives/**/*.html', 'public/views')
+	 .copy('./ngjs/dialogs/**/*.html', 'public/views')
+	 .livereload([
+		 'public/js/vendor.js',
+		 'public/js/partials.js',
+		 'public/js/app.js',
+		 'public/css/vendor.css',
+		 'public/css/app.css'
+	 ], {
+		 liveCSS: true
+	 });
 
-config.vendor_path_js = [
-	config.bower_path + '/jquery/dist/jquery.min.js',
-	config.bower_path + '/bootstrap/dist/js/bootstrap.min.js',
-	config.bower_path + '/angular/angular.min.js',
-	config.bower_path + '/angular-route/angular-route.min.js',
-	config.bower_path + '/angular-resource/angular-resource.min.js',
-	config.bower_path + '/angular-animate/angular-animate.min.js',
-	config.bower_path + '/angular-messages/angular-messages.min.js',
-	config.bower_path + '/angular-bootstrap/ui-bootstrap.min.js',
-	config.bower_path + '/angular-strap/dist/modules/navbar.min.js',
-	config.bower_path + '/angular-cookies/angular-cookies.min.js',
-	config.bower_path + '/query-string/query-string.js',
-	config.bower_path + '/angular-oauth2/dist/angular-oauth2.min.js'
-];
-
-config.vendor_path_css = [
-	config.bower_path + '/bootstrap/dist/css/bootstrap.min.css',
-	config.bower_path + '/bootstrap/dist/css/bootstrap-theme.min.css'
-];
-
-config.build_path_html = config.build_path + "/views";
-
-// TASKS
-
-gulp.task('copy-styles',function(){
-	gulp.src([
-		config.assets_path + '/css/**/*.css'
-	])
-	.pipe(gulp.dest(config.build_path_css))
-	.pipe(livereload());
-
-	gulp.src(config.vendor_path_css)
-	.pipe(gulp.dest(config.build_path_css))
-	.pipe(livereload());
-});
-gulp.task('copy-html',function(){
-	gulp.src([
-		config.assets_path + '/js/views/**/*.html'
-	])
-	.pipe(gulp.dest(config.build_path_html))
-	.pipe(livereload());
-
-});
-
-gulp.task('copy-scripts',function(){
-	gulp.src([
-		config.assets_path + '/js/**/*.js'
-	])
-	.pipe(gulp.dest(config.build_path_js))
-	.pipe(livereload());
-
-	gulp.src(config.build_path_js)
-	.pipe(gulp.dest(config.build__path_vendor))
-	.pipe(livereload());
-});
-
-gulp.task('clear-build-folder',function(){
-	clean.sync(config.build_path);
-});
-
-gulp.task('default',['clear-build-folder'],function(){
-    gulp.start('copy-html');
-	elixir(function(mix){
-		mix.styles(config.vendor_path_css.concat([config.assets_path+'/css/**/*']),
-		'public/css/all.css',config.assets_path);
-		mix.scripts(config.vendor_path_js.concat([config.assets_path+'/js/**/*']),
-		'public/js/all.js',config.assets_path);
-		mix.version(['js/all.js','css/all.css']);
-	});
-});
-
-gulp.task('watch-dev',['clear-build-folder'], function(){
-	livereload.listen();
-	gulp.start('copy-styles','copy-scripts','copy-html');
-	gulp.watch(config.assets_path + '/**',['copy-styles','copy-scripts','copy-html']); // vê em todos os arquivos
+ //.phpUnit();
 });
