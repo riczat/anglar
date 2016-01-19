@@ -156,6 +156,8 @@ return [
         LucaDegasperi\OAuth2Server\Storage\FluentStorageServiceProvider::class,
         LucaDegasperi\OAuth2Server\OAuth2ServerServiceProvider::class,
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
+        LaravelAngular\Generators\LaravelServiceProvider::class,
+
     ],
 
     /*
@@ -207,6 +209,8 @@ return [
         'JWTAuth'   => Tymon\JWTAuth\Facades\JWTAuth::class,
         'Debugbar'   => Barryvdh\Debugbar\Facade::class,
         'Authorizer' => LucaDegasperi\OAuth2Server\Facades\Authorizer::class,
+        'JWTFactory' => Tymon\JWTAuth\Facades\JWTFactory::class,
+
     ],
 
 ];

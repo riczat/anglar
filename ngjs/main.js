@@ -8,7 +8,9 @@
         'ngRoute',          // routing
         'ngSanitize',       // sanitizes html bindings (ex: sidebar.js)
 				'partialsModule',
+				'ngMessages',
 				'angular-locker',
+				'angular-oauth2',
 
         // Custom modules
         'common',           // common functions, logger, spinner
@@ -23,14 +25,13 @@
 				'app.services',
 				'app.directives',
 				'app.routes',
-				'app.config'
+				'app.config',
 		]);
 
 	angular.module('app.routes', ['ui.router']);
-	angular.module('app.controllers', ['ui.router', 'ngMaterial', 'ngStorage', 'restangular', 'angular-loading-bar', 'angular-locker']);
+	angular.module('app.controllers', ['ui.router', 'ngMaterial', 'ngStorage', 'restangular', 'angular-loading-bar', 'angular-locker', 'angular-oauth2']);
 	angular.module('app.filters', []);
 	angular.module('app.services', []);
 	angular.module('app.directives', []);
 	angular.module('app.config', []);
-
-})();
+});

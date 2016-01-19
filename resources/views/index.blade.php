@@ -53,9 +53,9 @@
             </div>
         </nav>
 
-            <div ui-view="views/header"></div>
-            <div ui-view="views/main"></div>
-            <div ui-view="views/footer"></div>
+            <div ui-view="layout"></div>
+            <div ui-view="main"></div>
+            <div ui-view="footer"></div>
 
         <!-- Scripts -->
         <div ng-view></div>

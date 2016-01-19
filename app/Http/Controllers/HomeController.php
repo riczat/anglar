@@ -14,10 +14,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('index');
-    }
+     public function serveApp()
+     {
+         return view('index');
+     }
+
+     public function unsupported()
+     {
+         return view('unsupported_browser');
+     }
 
     /**
      * Show the form for creating a new resource.

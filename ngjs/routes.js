@@ -4,7 +4,7 @@
 	angular.module('app.routes').config(function($stateProvider, $urlRouterProvider){
 
 		var getView = function(viewName){
-			return './build/views/' + viewName + '/' + viewName + '.html';
+			return './views/' + viewName + '/' + viewName + '.html';
 		};
 
 		$urlRouterProvider.otherwise('/');
@@ -31,21 +31,21 @@
           }
         }
       })
-      .state('app.landing', {
-        url: '/app/dashboard/dashboard.html',
+      .state('app.home', {
+        url: '/',
         data: {},
         views: {
           'main@': {
-            templateUrl: getView('landing')
+            templateUrl: getView('home')
           }
         }
       })
-			.state('app.landing', {
+			.state('app.login', {
 				url: '/',
 				data: {},
 				views: {
 					'main@': {
-						templateUrl: getView('landing')
+						templateUrl: getView('login')
 					}
 				}
 			});
