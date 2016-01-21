@@ -33,5 +33,5 @@
 	angular.module('app.filters', []);
 	angular.module('app.services', []);
 	angular.module('app.directives', []);
-	angular.module('app.config', []);
+	angular.module('app.config', ['ngMaterial']);
 });

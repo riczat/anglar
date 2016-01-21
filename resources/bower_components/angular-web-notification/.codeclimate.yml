@@ -9,14 +9,15 @@ ratings:
 exclude_paths:
   - test/**/*
   - test/*
-  - build/**/*
-  - build/*
+  - project/**/*
+  - project/*
   - example/**/*
   - example/*
   - docs/**/*
   - docs/*
   - Gruntfile.js
   - karma.conf.js
+  - .eslintrc.js
   - .editorconfig
   - .codeclimate.yml
   - LICENSE

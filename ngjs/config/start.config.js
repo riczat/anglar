@@ -1,3 +1,6 @@
+(function (){
+	"use strict";
+
 var app = angular.module('app', ['ngRoute', 'angular-oauth2', 'app.controllers']);
 
 app.config(['$routeProvider', 'OAuthProvider', function ($routeProvider, OAuthProvider) {
@@ -34,3 +37,4 @@ app.run(['$rootScope', '$window', 'OAuth', function ($rootScope, $window, OAuth)
             return $window.location.href = '/login?error_reason=' + rejection.data.error;
         });
     }]);
+})();

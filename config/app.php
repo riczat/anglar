@@ -142,7 +142,10 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
+        App\Providers\CodeProjectRepositoryProvider::class,
+        App\Providers\ResponseMacroServiceProvider::class,
+        //App\Providers\EventServiceProvider::class,
+        App\Providers\UserProvider::class,
         App\Providers\RouteServiceProvider::class,
 
         App\Providers\ResponseMacroServiceProvider::class,

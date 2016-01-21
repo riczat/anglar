@@ -1,6 +1,6 @@
 {
   "name": "angular-web-notification",
-  "version": "0.0.53",
+  "version": "0.0.57",
   "description": "AngularJS service for displaying web notifications.",
   "authors": [
     "Sagie Gur-Ari <sagiegurari@gmail.com>"
@@ -32,11 +32,11 @@
   "resolutions": {
     "angular": "1.4.7"
   },
-  "_release": "0.0.53",
+  "_release": "0.0.57",
   "_resolution": {
     "type": "version",
-    "tag": "0.0.53",
-    "commit": "c9d22da0cc104197c4dfa7ce269a9a36380fc657"
+    "tag": "0.0.57",
+    "commit": "6ada4b49a0a87453107fe09ac318daec68bcd185"
   },
   "_source": "git://github.com/sagiegurari/angular-web-notification.git",
   "_target": "~0.0.53",

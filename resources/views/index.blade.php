@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html ng-app="app" ng-strict-di>
     <head>
+
+      <link rel="stylesheet" href="/css/vendor.css">
+   <link rel="stylesheet" href="/css/app.css">
+
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
       <link rel="stylesheet" href="{!! asset('css/vendor.css') !!}">
       <link rel="stylesheet" href="{!! asset('css/app.css') !!}">
@@ -60,6 +64,8 @@
         <!-- Scripts -->
         <div ng-view></div>
 
+        <script src="/js/vendor.js"></script>
+        <script src="/js/app.js"></script
 
         <script src="{!! asset('js/vendor.js') !!}"></script>
         <script src="{!! asset('js/partials.js') !!}"></script>

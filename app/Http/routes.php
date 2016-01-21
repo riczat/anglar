@@ -13,6 +13,8 @@ Route::controllers([
     'password' => 'Auth\PasswordController'
 ]);
 
+Route::get('/data', 'DataController@index');
+
 Route::group(['middleware' => 'oauth'], function() {
             Route::resource('client', 'ClientController', ['except' => ['edit', 'create']]);
             Route::group(['middleware' => 'CheckProjectOwner'], function() {
